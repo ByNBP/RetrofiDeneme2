@@ -11,8 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/counter"
+        app:layout_constraintEnd_toStartOf="@+id/counter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counter"
+        android:textSize="20sp"
+        android:text="99"
+        android:textStyle="bold"
+        android:textColor="#444"
+        app:layout_constraintStart_toEndOf="@+id/liste"
+        app:layout_constraintTop_toBottomOf="@+id/liste"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="25dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

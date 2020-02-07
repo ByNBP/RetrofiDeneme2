@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.retrofitdeneme2.Adapters.PhotosAdapter;
 import com.example.retrofitdeneme2.Services.PhotosServices;
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Photos> photos = new ArrayList<>();
 
     RecyclerView recyclerView;
+    TextView counter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.liste);
+        counter = findViewById(R.id.counter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        AsyncTaskDeneme asyncTaskDeneme = new AsyncTaskDeneme(MainActivity.this,counter);
+        asyncTaskDeneme.execute();
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -68,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
 }
