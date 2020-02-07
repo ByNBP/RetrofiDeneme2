@@ -64,8 +64,6 @@ public class AsyncTaskDeneme extends AsyncTask<Integer, String, Integer> {
     protected void onPreExecute() {
         super.onPreExecute();
         // PROGRES DİALOG İŞLEMLERİ BURDA YAPILIYOR. !!!!!
-
-
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.custom_dialog_box);
         dialog.setCancelable(false);
